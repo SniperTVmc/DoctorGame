@@ -4,7 +4,6 @@ from random import choice, randint
 defaultNames = ["Léo", "Juliette", "Maël", "Jules", "Victor", "Gaspard", "Mathis", "Martin", "Laurence", "Paul", "Ambre", "Gaston"]
 defaultSymptoms = ["Unexplained Pain", "Respiratory Problems", "Digestive Problems", "Bleedings", "Physical Changes"]
 
-
 class Patient:
     def __init__(self, name, age, symptoms):
         self.name = name
