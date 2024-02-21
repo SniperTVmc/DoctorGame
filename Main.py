@@ -25,6 +25,7 @@ image_lungs = None
 image_bone = None
 image_sleep = None
 image_stress = None
+image_dead = None
 
 
 def resetMainWindow():
@@ -366,7 +367,20 @@ def doBiopsy(patient):
 def noBiopsy():
     resetMainWindow()
 
+    image_pil = Image.open("data/dead.png")
+    global image_dead
+    image_dead = ImageTk.PhotoImage(image_pil)
+
+    imageFrame = tk.Frame(mainWindow)
+    imageFrame.pack(pady=20)
+
+    imageLabel = tk.Label(imageFrame, image=image_dead)
+    imageLabel.pack()
+
     labelAskBiopsy = tk.Label(mainWindow, text="Stupid choice! Your patient died of cancer.", font=("Arial", 18))
+    labelAskBiopsy.pack()
+
+    labelAskBiopsy = tk.Label(mainWindow, text="If the analyses show signals of cancer, it's not for nothing!", font=("Arial", 18))
     labelAskBiopsy.pack()
 
     buttonFrame = ttk.Frame(mainWindow)
@@ -467,6 +481,16 @@ def noAnalysis(patient):
         healPatient += 1
 
     else:
+
+        image_pil = Image.open("data/dead.png")
+        global image_dead
+        image_dead = ImageTk.PhotoImage(image_pil)
+
+        imageFrame = tk.Frame(mainWindow)
+        imageFrame.pack(pady=20)
+
+        imageLabel = tk.Label(imageFrame, image=image_dead)
+        imageLabel.pack()
 
         label = ttk.Label(mainWindow,
                           text="Oh no, you should have done more analysis, your patient has an infection, he's going to die...",
